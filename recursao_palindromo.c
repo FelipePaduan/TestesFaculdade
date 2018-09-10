@@ -4,27 +4,10 @@
 
 int palindromo(char *p, int inicio, int fim)
 {
-    if(inicio == fim)
+    int tam = (fim - inicio) + 1;
+    if(tam <= 1)
     {
-        if(p[inicio] == p[fim])
-        {
-            return 1;
-        }
-        else
-        {
-            return 0;
-        }
-    }
-    if(inicio == fim - 1)
-    {
-        if(p[inicio] == p[fim])
-        {
-            return 1;
-        }
-        else
-        {
-            return 0;
-        }
+        return 1;
     }
     else
     {
@@ -44,6 +27,8 @@ int main()
     char string[25], retorno = 0;
     int tam = 0;
     fgets(string, 100, stdin);
+    string[strlen(string)-1] = 0;
     tam = strlen(string);
-    printf("%d", palindromo(string, 0, tam - 1));
+    printf("%d", palindromo(string, 0, tam-1));
+    return 0;
 }
