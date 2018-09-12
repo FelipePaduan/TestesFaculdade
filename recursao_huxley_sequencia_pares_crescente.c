@@ -5,7 +5,7 @@
 
 int sequencia_crescente(int num, int cont)
 {
-    if(cont != num)
+    if(cont <= num)
     {
         if(cont % 2 == 0)
         {
