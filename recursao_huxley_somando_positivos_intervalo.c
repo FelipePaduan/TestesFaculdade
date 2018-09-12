@@ -7,9 +7,13 @@ int soma(int numero, int inicio, int fim)
 {
     if(inicio <= fim)
     {
-        if(inicio > 0)
+        if(inicio >= 0)
         {
             numero += inicio;
+            return soma(numero, inicio + 1, fim);
+        }
+        else
+        {
             return soma(numero, inicio + 1, fim);
         }
     }
