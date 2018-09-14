@@ -3,37 +3,36 @@
 #include <math.h>
 #include <stdlib.h>
 
-int MDC(int num1, int num2, int cont, int cont_mdc, int *mdcv, int maior)
+int MDC(int maior, int menor)
 {
-
-
-        if(num1 % cont == 0 && num2 % cont == 0)
-        {
-            mdcv[cont/-mdc] = cont;
-            cont++;
-            cont_mdc++;
-            return MDC(num1, num2 , cont, cont_mdc, mdcv)
-        }
-        else
-        {
-            return MDC(num1, num2 , cont, cont_mdc, mdcv)
-        }
+    int div = 0;
+    if(maior % menor == 0)
+    {
+        return menor;
+    }
+    else
+    {
+        div = maior % menor;
+        return MDC(menor, div);
+    }
 }
 
 int main()
 {
     int num1 = 0, num2 = 0;
-    int mdcv[100];
+    int maior = 0, menor = 0;
     scanf("%d", &num1);
     scanf("%d", &num2);
     if(num1 > num2)
     {
         maior = num1;
+        menor = num2;
     }
     else
     {
         maior = num2;
+        menor = num1;
     }
-    MDC(num1, num2, 0, 0, mdcv);
+    printf("%d", MDC(maior, menor));
 	return 0;
 }
